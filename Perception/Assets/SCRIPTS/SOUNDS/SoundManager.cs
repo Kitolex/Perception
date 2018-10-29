@@ -58,15 +58,17 @@ public class SoundManager : MonoBehaviour {
 		}
 	}
 
-	// public void PlayOneTimeNotSpacializedSound (AudioClip audioClip) {
-	// 	this.audioSources[notSpacializedSoundIndex].PlayOneShot(audioClip);
-	// }
+	public void PlayOneTimeNotSpacializedSound (AudioClip audioClip) {
+		this.audioSources[notSpacializedSoundIndex].PlayOneShot(audioClip);
+	}
 
-	// public void PlayHoverSong () {
-	// 	this.desiredVolume = this.maxHoverVolume;
-	// }
+	public void PlayHoverSong () {
+		this.desiredVolume = this.maxHoverVolume;
+		this.desiredPitch = this.maxHoverPitch;
+	}
 
-	// public void StopHoverSong () {
-	// 	this.desiredVolume = this.minHoverVolume;
-	// }
+	public void StopHoverSong () {
+		this.desiredVolume = this.minHoverVolume;
+		this.desiredPitch = this.minHoverPitch;
+	}
 }
