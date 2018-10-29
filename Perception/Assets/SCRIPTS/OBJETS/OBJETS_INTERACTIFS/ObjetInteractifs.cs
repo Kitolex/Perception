@@ -18,4 +18,9 @@ public abstract class ObjetInteractifs : MonoBehaviour {
      * Méthode appelé lors de l'activation de l'objet 
      */
     public abstract void Activation();
+
+    public virtual bool isActivable()
+    {
+        return true;
+    }
 }
