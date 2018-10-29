@@ -13,4 +13,10 @@ public class Porte : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void ouverturePorte()
+    {
+        Debug.Log("Ouverture Porte");
+        //TODO ouvrir la porte
+    }
 }

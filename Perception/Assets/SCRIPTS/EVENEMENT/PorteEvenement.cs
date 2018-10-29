@@ -7,6 +7,7 @@ public class PorteEvenement : Evenement {
     override
     public void activation()
     {
-        Debug.Log("Porte Activé");
+        Debug.Log("Lance Méthode ouverture Porte");
+        GetComponent<Porte>().ouverturePorte();
     }
 }
