@@ -243,4 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724dca406bdb9ea4b866b3919c60cf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHoverVolume: 0.4
+  minHoverVolume: 0.3
+  maxHoverVolume: 0.6
+  minHoverPitch: 0.8
+  maxHoverPitch: 1.2
+  debugVolume: 0
+  debugPitch: 0

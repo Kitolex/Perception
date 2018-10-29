@@ -9,13 +9,22 @@ public class SoundManager : MonoBehaviour {
 
 	private AudioSource[] audioSources;
 
-	public float maxHoverVolume = 0.4f;
+	public float minHoverVolume = 0.3f;
+	public float maxHoverVolume = 0.6f;
+
+	public float minHoverPitch = 0.8f;
+	public float maxHoverPitch = 1.2f;
+	public bool debugVolume;
+	public bool debugPitch;
+	public bool debugBoth;
 
 	private readonly int hoverSoundIndex = 0;
 	private readonly int notSpacializedSoundIndex = 1;
-	private float desiredVol;
+	private float desiredVolume;
+	private float desiredPitch;
     private float smoothTime = 0.3f;
-    private float velocity = 0.0f;
+    private float velocityVolume = 0.0f;
+    private float velocityPitch = 0.0f;
 
 	void Awake () {
 		if(SoundManager.Instance == null) {
@@ -33,22 +42,31 @@ public class SoundManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		this.audioSources[hoverSoundIndex].volume = Mathf.SmoothDamp(this.audioSources[hoverSoundIndex].volume, this.desiredVol, ref this.velocity, this.smoothTime);
+		this.desiredVolume = debugVolume ? maxHoverVolume : minHoverVolume;
+		this.desiredPitch = debugPitch ? maxHoverPitch : minHoverPitch;
 
+		if(debugBoth) {
+			this.desiredVolume = maxHoverVolume;
+			this.desiredPitch = maxHoverPitch;
+		}
+
+		this.audioSources[hoverSoundIndex].volume = Mathf.SmoothDamp(this.audioSources[hoverSoundIndex].volume, this.desiredVolume, ref this.velocityVolume, this.smoothTime);
+		this.audioSources[hoverSoundIndex].pitch = Mathf.SmoothDamp(this.audioSources[hoverSoundIndex].pitch, this.desiredPitch, ref this.velocityPitch, this.smoothTime);
+		
 		if(this.audioSources[hoverSoundIndex].volume <= 0.0001f) {
 			this.audioSources[hoverSoundIndex].volume = 0.0f;
 		}
 	}
 
-	public void PlayOneTimeNotSpacializedSound (AudioClip audioClip) {
-		this.audioSources[notSpacializedSoundIndex].PlayOneShot(audioClip);
-	}
+	// public void PlayOneTimeNotSpacializedSound (AudioClip audioClip) {
+	// 	this.audioSources[notSpacializedSoundIndex].PlayOneShot(audioClip);
+	// }
 
-	public void PlayHoverSong () {
-		this.desiredVol = this.maxHoverVolume;
-	}
+	// public void PlayHoverSong () {
+	// 	this.desiredVolume = this.maxHoverVolume;
+	// }
 
-	public void StopHoverSong () {
-		this.desiredVol = 0.0f;
-	}
+	// public void StopHoverSong () {
+	// 	this.desiredVolume = this.minHoverVolume;
+	// }
 }
