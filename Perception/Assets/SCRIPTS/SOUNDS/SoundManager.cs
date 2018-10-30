@@ -36,19 +36,20 @@ public class SoundManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		this.desiredVolume = this.minHoverVolume;
+		this.desiredPitch = this.minHoverPitch;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 
-		this.desiredVolume = debugVolume ? maxHoverVolume : minHoverVolume;
-		this.desiredPitch = debugPitch ? maxHoverPitch : minHoverPitch;
+		// this.desiredVolume = debugVolume ? maxHoverVolume : minHoverVolume;
+		// this.desiredPitch = debugPitch ? maxHoverPitch : minHoverPitch;
 
-		if(debugBoth) {
-			this.desiredVolume = maxHoverVolume;
-			this.desiredPitch = maxHoverPitch;
-		}
+		// if(debugBoth) {
+		// 	this.desiredVolume = maxHoverVolume;
+		// 	this.desiredPitch = maxHoverPitch;
+		// }
 
 		this.audioSources[hoverSoundIndex].volume = Mathf.SmoothDamp(this.audioSources[hoverSoundIndex].volume, this.desiredVolume, ref this.velocityVolume, this.smoothTime);
 		this.audioSources[hoverSoundIndex].pitch = Mathf.SmoothDamp(this.audioSources[hoverSoundIndex].pitch, this.desiredPitch, ref this.velocityPitch, this.smoothTime);
@@ -56,6 +57,9 @@ public class SoundManager : MonoBehaviour {
 		if(this.audioSources[hoverSoundIndex].volume <= 0.0001f) {
 			this.audioSources[hoverSoundIndex].volume = 0.0f;
 		}
+
+		this.desiredVolume = this.minHoverVolume;
+		this.desiredPitch = this.minHoverPitch;
 	}
 
 	public void PlayOneTimeNotSpacializedSound (AudioClip audioClip) {
@@ -67,8 +71,8 @@ public class SoundManager : MonoBehaviour {
 		this.desiredPitch = this.maxHoverPitch;
 	}
 
-	public void StopHoverSong () {
-		this.desiredVolume = this.minHoverVolume;
-		this.desiredPitch = this.minHoverPitch;
-	}
+	// public void StopHoverSong () {
+	// 	this.desiredVolume = this.minHoverVolume;
+	// 	this.desiredPitch = this.minHoverPitch;
+	// }
 }

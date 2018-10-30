@@ -17,7 +17,7 @@ public class InteractAbility : MonoBehaviour {
 	void Update () {
         HandleInput();
         if (IsHovering())
-            Debug.Log("Can interact");
+            SoundManager.Instance.PlayHoverSong();
 	}
 
     void HandleInput()
