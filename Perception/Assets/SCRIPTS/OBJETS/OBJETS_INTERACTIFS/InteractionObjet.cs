@@ -12,6 +12,10 @@ public class InteractionObjet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //TODO : détecter interaction possible et lancer méthode objetActiver quand c'est ok
+        if (Input.GetKey(KeyCode.I))
+        {
+            objetActiver();
+        }
     }
 
     /**

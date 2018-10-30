@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class Button : ObjetInteractifs
 {
+
+
+    private EventManager eventManager;
+
+
+    // Use this for initialization
+    void Start()
+    {
+        eventManager = GetComponent<EventManager>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public override void Activation()
     {
+        
         Debug.Log("BOUTTON ACTIONNER");
+        eventManager.activation();
         //TODO : activation boutton
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
