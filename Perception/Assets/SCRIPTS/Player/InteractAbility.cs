@@ -8,16 +8,25 @@ public class InteractAbility : MonoBehaviour {
 
     private Camera cam;
 
+    private bool alreadyHovering;
 
 	void Start () {
         cam = Camera.main;
+        alreadyHovering = false;
     }
 	
 
 	void Update () {
         HandleInput();
-        if (IsHovering())
-            SoundManager.Instance.PlayHoverSong();
+        if (IsHovering()) {
+            if(!alreadyHovering) {
+                SoundManager.Instance.StartHoverSong();
+                alreadyHovering = true;
+            }
+        } else if (alreadyHovering) {
+            SoundManager.Instance.StopHoverSong();
+            alreadyHovering = false;
+        }
 	}
 
     void HandleInput()
