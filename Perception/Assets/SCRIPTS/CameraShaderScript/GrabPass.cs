@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class GrabPass : MonoBehaviour {
-	public int Distortion = 1;
+	public int Distortion = 130;
 
 
 	// Use this for initialization

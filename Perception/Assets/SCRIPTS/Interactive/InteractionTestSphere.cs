@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class InteractionTestSphere : MonoBehaviour, IInteractive
 {
+
+    public ShaderEffect shaderNiveauGris;
+    public EnigmeManager enigmeManager;
+
     public void Interact()
     {
-        Debug.Log("Interacted with sphere");
+        this.shaderNiveauGris.enabled = false;
+        this.enigmeManager.hasTheRightPerception = true;
     }
 }

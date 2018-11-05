@@ -12,7 +12,7 @@ public class EnigmeManager : MonoBehaviour {
     
 
     bool problemSolved = false;
-    bool hasTheRightPerception = true;
+    public bool hasTheRightPerception = true;
 
 
     private GameObject[] instanciatedButtons;

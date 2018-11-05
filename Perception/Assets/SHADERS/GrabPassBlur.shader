@@ -4,7 +4,7 @@
  
 Shader "GrabPassBlur" {
     Properties {
-        _Size ("Blur", Range(0, 200)) = 1
+        _Size ("Blur", Range(0, 130)) = 1
         [HideInInspector] _MainTex ("Tint Color (RGB)", 2D) = "white" {}
     }
     Category {
