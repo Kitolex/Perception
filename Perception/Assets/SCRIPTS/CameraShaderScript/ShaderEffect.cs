@@ -3,9 +3,9 @@
 [ExecuteInEditMode]
 public class ShaderEffect : MonoBehaviour {
 
-  public Material material;
+  public Material GrayScaleAndColorCanal;
 
   void OnRenderImage (RenderTexture source, RenderTexture destination) {
-    Graphics.Blit(source, destination, material);
+    Graphics.Blit(source, destination, GrayScaleAndColorCanal);
   }
 }

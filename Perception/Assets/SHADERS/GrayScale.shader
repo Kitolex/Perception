@@ -4,6 +4,8 @@
 	_RedChannel ("Red Channel", Range (0, 1)) = 0
 	_GreenChannel ("Green Channel", Range (0, 1)) = 0
 	_BlueChannel ("Blue Channel", Range (0, 1)) = 0
+	_FadeText ("Fade Texture", 2D) = "white" {}
+	_FadeRange("Fade Range", Range(0,1)) = 0
 	}
 		SubShader {
 		Pass {

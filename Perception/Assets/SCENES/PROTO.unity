@@ -710,6 +710,11 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 361130900}
+    - target: {fileID: 114863708504013024, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: GrayScaleAndColorCanal
+      value: 
+      objectReference: {fileID: 2100000, guid: 893f6df84999e2c4b849888c204a538b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabAsset: 0
@@ -2737,31 +2742,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4239496836465826, guid: 4fa548a981b2b434eacde2e1bfaf57ec,
     type: 2}
   m_PrefabInternal: {fileID: 591846522}
---- !u!21 &1089429922
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: GrabPassBlur
-  m_Shader: {fileID: 4800000, guid: a811c2aa6d64f654291c8cd0a8d8ff27, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Size: 130
-    m_Colors: []
 --- !u!1001 &1152376321
 Prefab:
   m_ObjectHideFlags: 0
@@ -4430,6 +4410,49 @@ Transform:
   m_Father: {fileID: 1085128387}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &2070181149
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: GrabPassBlur
+  m_Shader: {fileID: 4800000, guid: a811c2aa6d64f654291c8cd0a8d8ff27, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Size: 130
+    m_Colors: []
+--- !u!1 &2073530518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 275774800}
+--- !u!114 &2073530523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073530518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7e2f9bb4b4ae47bb45299deb75ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrayScaleAndColorCanal: {fileID: 2100000, guid: f7798c46ce23ae1489bb7401ed0f31d1,
+    type: 2}
 --- !u!1 &2122160304
 GameObject:
   m_ObjectHideFlags: 0
