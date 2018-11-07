@@ -20,11 +20,11 @@ public class InteractAbility : MonoBehaviour {
         HandleInput();
         if (IsHovering()) {
             if(!alreadyHovering) {
-                SoundManager.Instance.StartHoverSong();
+                SoundManager2.Instance.StartHoverSong();
                 alreadyHovering = true;
             }
         } else if (alreadyHovering) {
-            SoundManager.Instance.StopHoverSong();
+            SoundManager2.Instance.StopHoverSong();
             alreadyHovering = false;
         }
 	}

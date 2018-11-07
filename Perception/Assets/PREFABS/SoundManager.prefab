@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4241895698378090}
   - component: {fileID: 114772962318686228}
+  - component: {fileID: 114471639481322560}
   - component: {fileID: 82892753582852688}
   - component: {fileID: 82916239455489738}
   - component: {fileID: 82791381830839824}
@@ -245,7 +246,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: de3f9aff0ea2f0241b1e9cd82d7a77d5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
-  m_Pitch: 1
+  m_Pitch: 0.9
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -328,7 +329,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114772962318686228
+--- !u!114 &114471639481322560
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,8 +337,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1322358009879810}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c3f37ec17b66149a07648be56538f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHoverVolume: 0.3
+  maxHoverVolume: 0.4
+  minHoverPitch: 0.8
+  maxHoverPitch: 0.95
+  smoothTimeVolume: 0.3
+  smoothTimePitch: 0.15
+--- !u!114 &114772962318686228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322358009879810}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 724dca406bdb9ea4b866b3919c60cf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minHoverVolume: 0.3
-  maxHoverVolume: 0.6
+  maxHoverVolume: 0.4

@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour {
 	private AudioSource[] audioSources;
 
 	public float minHoverVolume = 0.3f;
-	public float maxHoverVolume = 0.6f;
+	public float maxHoverVolume = 0.4f;
 
 	private readonly int hoverInactifSoundIndex = 0;
 	private readonly int hoverActifSoundIndex = 1;
