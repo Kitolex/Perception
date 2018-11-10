@@ -31,7 +31,7 @@ public class SubtitleManager : MonoBehaviour {
 			this.texts[nt.title] = nt.displayedTexts;
 		}
 
-		this.startTextsSequence("Text1");
+		// this.startTextsSequence("Text1");
 	}
 
 	public void startTextsSequence (string title) {
