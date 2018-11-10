@@ -113,31 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &23850356
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: GrabPassBlur
-  m_Shader: {fileID: 4800000, guid: a811c2aa6d64f654291c8cd0a8d8ff27, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Size: 130
-    m_Colors: []
 --- !u!1 &87332025
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,21 +307,6 @@ Prefab:
     - target: {fileID: 224005095615544886, guid: 3ced1b12830631e40a968d670295c05c,
         type: 2}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114454506166866912, guid: 3ced1b12830631e40a968d670295c05c,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114762751023056624, guid: 3ced1b12830631e40a968d670295c05c,
-        type: 2}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114762751023056624, guid: 3ced1b12830631e40a968d670295c05c,
-        type: 2}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -863,12 +823,6 @@ Material:
     m_Floats:
     - _Size: 130
     m_Colors: []
---- !u!114 &398912324 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114762751023056624, guid: 3ced1b12830631e40a968d670295c05c,
-    type: 2}
-  m_PrefabInternal: {fileID: 94624331}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &426720432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3222,31 @@ Transform:
   m_Father: {fileID: 2046648870}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1460847753
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: GrabPassBlur
+  m_Shader: {fileID: 4800000, guid: a811c2aa6d64f654291c8cd0a8d8ff27, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Size: 130
+    m_Colors: []
 --- !u!1001 &1486490585
 Prefab:
   m_ObjectHideFlags: 0
@@ -3943,12 +3922,6 @@ Transform:
   m_Father: {fileID: 1085128387}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1942278867 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114454506166866912, guid: 3ced1b12830631e40a968d670295c05c,
-    type: 2}
-  m_PrefabInternal: {fileID: 94624331}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1952729574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,58 +4420,6 @@ Transform:
   m_Father: {fileID: 1085128387}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2050981174
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759705530602552, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114314456895075538, guid: f84427529d059c544b953e0f84d0995a,
-        type: 2}
-      propertyPath: subtitle
-      value: 
-      objectReference: {fileID: 398912324}
-    - target: {fileID: 114314456895075538, guid: f84427529d059c544b953e0f84d0995a,
-        type: 2}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 1942278867}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f84427529d059c544b953e0f84d0995a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &2122160304
 GameObject:
   m_ObjectHideFlags: 0
