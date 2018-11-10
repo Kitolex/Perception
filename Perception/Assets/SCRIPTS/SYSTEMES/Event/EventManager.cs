@@ -29,9 +29,9 @@ public class EventManager : MonoBehaviour
     {
         for (var i = 0; i < 1; i++)
         {
-            Debug.Log("WAIT FIN " + e.name[0]);
+            //Debug.Log("WAIT FIN " + e.name[0]);
             yield return new WaitWhile(() => e.go.evenementIsEnCours());
-            Debug.Log("UNWAIT" + e.name[0]);
+           // Debug.Log("UNWAIT" + e.name[0]);
         }
         index++;
         if (index < es.Count)
@@ -56,6 +56,9 @@ public class EventManager : MonoBehaviour
                 case System.TypeCode.Boolean:
                     objectTemp[0] = e.paramBool;
                     break;
+                case System.TypeCode.String:
+                    objectTemp[0] = e.paramString;
+                    break;
 
             }
             m.Invoke(e.go, objectTemp);
@@ -67,5 +70,7 @@ public class EventManager : MonoBehaviour
 
        StartCoroutine(timer(e));
     }
+
+
 
 }

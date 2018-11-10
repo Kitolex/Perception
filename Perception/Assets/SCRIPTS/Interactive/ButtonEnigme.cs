@@ -17,6 +17,8 @@ public class ButtonEnigme : MonoBehaviour, IInteractive {
         this.audioSource = GetComponent<AudioSource>();
     }
 
+
+
     public void Interact()
     {
         this.audioSource.PlayOneShot(sound);

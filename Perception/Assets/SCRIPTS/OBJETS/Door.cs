@@ -19,15 +19,17 @@ public class Door : MonoBehaviour {
 	
 	public void OpenDoor()
     {
-        audioSource.PlayOneShot(sound);
+        
         animator.SetBool("isOpen", true);
         collid.enabled = false;
+        audioSource.PlayOneShot(sound);
     }
 
     public void CloseDoor()
     {
-        audioSource.PlayOneShot(sound);
+        
         animator.SetBool("isOpen", false);
         collid.enabled = true;
+        audioSource.PlayOneShot(sound);
     }
 }

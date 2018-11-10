@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : ObjetInteractifs
+public class Button : MonoBehaviour, IInteractive
 {
 
-
     private EventManager eventManager;
+    public AudioClip sound;
+    private AudioSource audioSource;
 
+    void Awake()
+    {
+        this.audioSource = GetComponent<AudioSource>();
+    }
 
     // Use this for initialization
     void Start()
@@ -21,13 +26,8 @@ public class Button : ObjetInteractifs
 
     }
 
-    public override void Activation()
+    public void Interact()
     {
-        
-        Debug.Log("BOUTTON ACTIONNER");
         eventManager.activation();
-        //TODO : activation boutton
     }
-
-
 }
