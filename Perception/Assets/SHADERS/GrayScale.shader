@@ -1,6 +1,7 @@
 ﻿Shader "GrayScale" {
 	Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", 2D) = "black" {}
+	_GrayScale ("GrayScale", Range (0, 1)) = 0
 	_RedChannel ("Red Channel", Range (0, 1)) = 0
 	_GreenChannel ("Green Channel", Range (0, 1)) = 0
 	_BlueChannel ("Blue Channel", Range (0, 1)) = 0
@@ -18,6 +19,7 @@
 			uniform float _RedChannel;
 			uniform float _GreenChannel;
 			uniform float _BlueChannel;
+			uniform float _GrayScale;
 
 
 			struct v2f 
@@ -37,9 +39,12 @@
 				
 				float4 result = c;
 
-				result.r = lerp(bw.r, float( c.r*_RedChannel), _RedChannel);
-				result.g = lerp(bw.g, float( c.g*_GreenChannel), _GreenChannel);
-				result.b = lerp(bw.b, float( c.b*_BlueChannel), _BlueChannel);
+				float4 pigment;
+				pigment.r = lerp( 0,  float(c.r),_RedChannel);
+				pigment.g = lerp( 0, float(c.g),_GreenChannel);
+				pigment.b = lerp( 0,float(c.b),_BlueChannel);
+
+				result.rgb = lerp(bw, pigment.rgb, _GrayScale);	
 				return result;
 				
 			}
