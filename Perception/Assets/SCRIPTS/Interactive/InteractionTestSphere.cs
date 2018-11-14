@@ -12,4 +12,9 @@ public class InteractionTestSphere : MonoBehaviour, IInteractive
         VisionStateMachine.Instance.ChangeState(VisionStates.ChromaVision);
         this.enigmeManager.hasTheRightPerception = true;
     }
+
+    public bool IsActive()
+    {
+        return true;
+    }
 }
