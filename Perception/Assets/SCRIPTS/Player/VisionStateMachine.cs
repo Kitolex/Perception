@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class VisionStateMachine : StateMachine<VisionStates>{
 
+    public static VisionStateMachine Instance;
+
+    public void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
 
     protected override void Start()
     {

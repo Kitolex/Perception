@@ -9,7 +9,7 @@ public class InteractionTestSphere : MonoBehaviour, IInteractive
 
     public void Interact()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<VisionStateMachine>().ChangeState(VisionStates.ChromaVision);
+        VisionStateMachine.Instance.ChangeState(VisionStates.ChromaVision);
         this.enigmeManager.hasTheRightPerception = true;
     }
 }

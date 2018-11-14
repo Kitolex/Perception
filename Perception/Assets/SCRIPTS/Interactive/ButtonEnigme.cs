@@ -25,4 +25,9 @@ public class ButtonEnigme : MonoBehaviour, IInteractive {
         else
             enigmeManager.ResetEnigme();
     }
+
+    public bool IsActive()
+    {
+        return true;
+    }
 }
