@@ -39,7 +39,13 @@ public class InteractAbility : MonoBehaviour {
     bool IsHovering()
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        return Physics.Raycast(ray, InteractRange, LayerMask.GetMask("Interactive"));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, InteractRange, LayerMask.GetMask("Interactive")))
+        {
+            return hit.collider.GetComponent<IInteractive>().IsActive();
+        }
+
+        return false;        
     }
 
     // Déclenche une interaction

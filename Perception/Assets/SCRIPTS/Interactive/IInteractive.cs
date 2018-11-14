@@ -4,4 +4,5 @@ using UnityEngine;
 
 public interface IInteractive  {
     void Interact();
+    bool IsActive();  // True de base
 }

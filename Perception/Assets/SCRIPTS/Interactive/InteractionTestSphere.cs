@@ -5,12 +5,16 @@ using UnityEngine;
 public class InteractionTestSphere : MonoBehaviour, IInteractive
 {
 
-    public ShaderEffect shaderNiveauGris;
     public EnigmeManager enigmeManager;
 
     public void Interact()
     {
-        this.shaderNiveauGris.enabled = false;
+        VisionStateMachine.Instance.ChangeState(VisionStates.ChromaVision);
         this.enigmeManager.hasTheRightPerception = true;
+    }
+
+    public bool IsActive()
+    {
+        return true;
     }
 }

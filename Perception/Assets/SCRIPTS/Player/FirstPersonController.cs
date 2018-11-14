@@ -16,7 +16,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_GravityMultiplier;
         [SerializeField] private MouseLook m_MouseLook;
         [SerializeField] private bool m_UseHeadBob;
-        [SerializeField] private float m_StepInterval;
 
         private Camera m_Camera;
         private float m_YRotation;
@@ -26,8 +25,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private CollisionFlags m_CollisionFlags;
         private bool m_PreviouslyGrounded;
         private Vector3 m_OriginalCameraPosition;
-        private float m_StepCycle;
-        private float m_NextStep;
         private bool m_Jumping;
 
         // Use this for initialization
@@ -36,8 +33,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
-            m_StepCycle = 0f;
-            m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
@@ -51,7 +46,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
                 m_MoveDir.y = 0f;
-                m_Jumping = false;
+
             }
             if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
             {
@@ -89,28 +84,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
-            ProgressStepCycle(speed);
-
             m_MouseLook.UpdateCursorLock();
         }
 
-
-
-        private void ProgressStepCycle(float speed)
-        {
-            if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
-            {
-                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
-                             Time.fixedDeltaTime;
-            }
-
-            if (!(m_StepCycle > m_NextStep))
-            {
-                return;
-            }
-
-            m_NextStep = m_StepCycle + m_StepInterval;
-        }
 
 
         private void GetInput(out float speed)
