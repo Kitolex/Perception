@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class PerceptionEvenement : Evenement {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    //example
 
-    public void choosePerception(string etat_Perception)
-    {
-
+    /*
+     public void visionRouge(){
+        lancerRouge
     }
 
-    public void a(System.Enum etat_Perception)
-    {
+    */
 
-    }
 }

@@ -12,22 +12,14 @@ public class Button : MonoBehaviour, IInteractive
     void Awake()
     {
         this.audioSource = GetComponent<AudioSource>();
-    }
-
-    // Use this for initialization
-    void Start()
-    {
         eventManager = GetComponent<EventManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+ 
 
     public void Interact()
     {
+        this.audioSource.PlayOneShot(sound);
         eventManager.activation();
     }
 }
