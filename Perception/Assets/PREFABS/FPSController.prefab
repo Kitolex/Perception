@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 114274080849640970}
   - component: {fileID: 114608653892001132}
   - component: {fileID: 114110904584296080}
+  - component: {fileID: 114683632070269506}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -34,6 +35,8 @@ GameObject:
   - component: {fileID: 8100000}
   - component: {fileID: 12474086}
   - component: {fileID: 114863708504013024}
+  - component: {fileID: 114394682162827608}
+  - component: {fileID: 114403036460419138}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -254,7 +257,6 @@ MonoBehaviour:
     smoothTime: 5
     lockCursor: 1
   m_UseHeadBob: 1
-  m_StepInterval: 5
 --- !u!124 &12474086
 Behaviour:
   m_ObjectHideFlags: 1
@@ -363,6 +365,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractRange: 2
+--- !u!114 &114394682162827608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc7e2f9bb4b4ae47bb45299deb75ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f7798c46ce23ae1489bb7401ed0f31d1, type: 2}
+--- !u!114 &114403036460419138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c9ebc214b0141c6a6ecf1e7443f3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloomShader: {fileID: 4800000, guid: 926e8db920ab84661b115e2bdbc8199b, type: 3}
+  intensity: 1
+  iterations: 4
+  threshold: 1
+  softThreshold: 0.5
+  debug: 0
 --- !u!114 &114517617599287822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +454,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractRange: 2
+--- !u!114 &114683632070269506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72daf0eb382c026429bab11b7b368759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  previousState: 0
 --- !u!114 &114802878938686146
 MonoBehaviour:
   m_ObjectHideFlags: 1

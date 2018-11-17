@@ -6,10 +6,11 @@ public class InteractionTestSphere : MonoBehaviour, IInteractive
 {
 
     public EnigmeManager enigmeManager;
+    public VisionStates vision;
 
     public void Interact()
     {
-        VisionStateMachine.Instance.ChangeState(VisionStates.ChromaVision);
+        VisionStateMachine.Instance.ChangeState(vision);
         this.enigmeManager.hasTheRightPerception = true;
     }
 

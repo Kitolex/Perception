@@ -18,6 +18,10 @@ public class VisionStateMachine : StateMachine<VisionStates>{
 
         AddState(VisionStates.BlackWhiteVision, new BlackWhiteVision(gameObject));
         AddState(VisionStates.ChromaVision, new ChromaVision(gameObject));
+        AddState(VisionStates.RedVision,new RedVision(gameObject) );
+        AddState(VisionStates.GreenVision,new GreenVision(gameObject) );
+        AddState(VisionStates.BlueVision,new BlueVision(gameObject) );
+        AddState(VisionStates.MidBlurVision,new BlurVision(gameObject) );
 
         ChangeState(VisionStates.BlackWhiteVision);
     }
