@@ -2,7 +2,6 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditorInternal;
-using System.Collections.Generic;
 using System.Reflection;
 
 
@@ -70,7 +69,8 @@ public class EventManagerEditor : Editor
                                     if (m[i].GetParameters().Length == 1)
                                     {
                                         if (m[i].GetParameters()[0].ParameterType.Equals(typeof(int)) ||
-                                            m[i].GetParameters()[0].ParameterType.Equals(typeof(bool)))
+                                            m[i].GetParameters()[0].ParameterType.Equals(typeof(bool)) ||
+                                            m[i].GetParameters()[0].ParameterType.Equals(typeof(string)))
                                         {
                                             myEventM.es[index].nameM.Add(m[i].Name);
                                         }
@@ -123,6 +123,13 @@ public class EventManagerEditor : Editor
                                             EditorGUI.PropertyField(
                                                 new Rect(rect.x, rect.y + (2 * rect.height / 4), rect.width / 2, EditorGUIUtility.singleLineHeight),
                                                 element.FindPropertyRelative("paramBool"), GUIContent.none);
+                                        }
+                                        else if (m[i].GetParameters()[0].ParameterType.Equals(typeof(string)))
+                                        {
+                                            myEventM.es[index].enumParam[0] = System.TypeCode.String;
+                                            EditorGUI.PropertyField(
+                                                new Rect(rect.x, rect.y + (2 * rect.height / 4), rect.width / 2, EditorGUIUtility.singleLineHeight),
+                                                element.FindPropertyRelative("paramString"), GUIContent.none);
                                         }
                                         else
                                         {

@@ -2,32 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : ObjetInteractifs
+public class Button : MonoBehaviour, IInteractive
 {
 
-
     private EventManager eventManager;
+    public AudioClip sound;
+    private AudioSource audioSource;
 
-
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
+        this.audioSource = GetComponent<AudioSource>();
         eventManager = GetComponent<EventManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+ 
 
-    }
-
-    public override void Activation()
+    public void Interact()
     {
-        
-        Debug.Log("BOUTTON ACTIONNER");
+        this.audioSource.PlayOneShot(sound);
         eventManager.activation();
-        //TODO : activation boutton
     }
 
-
+    public bool IsActive()
+    {
+        return true;
+    }
 }
