@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c772892de496eef4aac3c2ffcd230712, type: 3}
-  m_Name: testenigmeCombinaison
+  m_Name: enigmeCouleur
   m_EditorClassIdentifier: 
-  typeEnigme: 1
-  bonnes: correct1
-  mauvaises: 
+  typeEnigme: 0
+  bonnes: correct
+  mauvaises: mauvais
   solvable: 1
-  listeCombinaison: 0200000003000000
-  boutonCorrect: 1
+  listeCombinaison: 
+  boutonCorrect: 4

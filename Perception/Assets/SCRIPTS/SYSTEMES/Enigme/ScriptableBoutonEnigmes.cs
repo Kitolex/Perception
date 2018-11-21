@@ -6,9 +6,9 @@ public class ScriptableBoutonEnigmes : ScriptableObject {
 
     public TypeEnigmeButton typeEnigme;
 
-    public string bonnes;
-    public string mauvaises;
-    public bool solvable;
+    public string bonnes="correct";
+    public string mauvaises= "mauvais";
+    public bool solvable = true;
 
 
 
