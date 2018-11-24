@@ -21,8 +21,10 @@ GameObject:
   - component: {fileID: 4177441272516920}
   - component: {fileID: 33779478788348084}
   - component: {fileID: 23515548877410040}
-  m_Layer: 0
-  m_Name: flask_5
+  - component: {fileID: 114828016259837512}
+  - component: {fileID: 114013212844917210}
+  m_Layer: 9
+  m_Name: Fiole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +40,7 @@ GameObject:
   - component: {fileID: 4604347562250504}
   - component: {fileID: 33733445972126938}
   - component: {fileID: 23001474195972898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: solution_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,8 +53,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354198534724174}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00016030497, y: -0.00036352125, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.72, y: 0.853, z: 37.556}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604347562250504}
@@ -156,3 +158,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354198534724174}
   m_Mesh: {fileID: 4300036, guid: 7fce99bc7bdf3d745af428dd011168f5, type: 3}
+--- !u!114 &114013212844917210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354198534724174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb1449c74e7eba42b8177d741a022ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  es: []
+  index: 0
+  nomEvent: 
+--- !u!114 &114828016259837512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354198534724174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1dcb4467832154ca4f30c4ba8b45a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisionStates: 2

@@ -14,6 +14,6 @@ MonoBehaviour:
   typeEnigme: 0
   bonnes: correct
   mauvaises: mauvais
-  solvable: 1
+  solvable: 0
   listeCombinaison: 
   boutonCorrect: 4
