@@ -9,13 +9,20 @@ public class SoundManager : MonoBehaviour {
 
 	private AudioSource[] audioSources;
 
+	[Header("Parameters")]
+
 	public float minHoverVolume = 0.3f;
 	public float maxHoverVolume = 0.4f;
 
 	public float minHoverPitch = 0.8f;
 	public float maxHoverPitch = 0.95f;
+
     public float smoothTimeVolume = 0.3f;
     public float smoothTimePitch = 0.1f;
+
+	[Header("Audio clips")]
+
+	public AudioClip glouglou;
 
 	private readonly int hoverSoundIndex = 0;
 	private readonly int notSpacializedSoundIndex = 1;

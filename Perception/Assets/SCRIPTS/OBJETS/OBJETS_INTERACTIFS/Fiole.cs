@@ -14,6 +14,7 @@ public class Fiole : MonoBehaviour, IInteractive {
 
     public void Interact()
     {
+        SoundManager.Instance.PlayOneTimeNotSpacializedSound(SoundManager.Instance.glouglou);
         VisionStateMachine.Instance.ChangeState(VisionStates);
         eventManager.activation();
         gameObject.SetActive(false);
