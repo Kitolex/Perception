@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour {
 	[Header("Audio clips")]
 
 	public AudioClip glouglou;
+	public AudioClip placardOpen;
+	public AudioClip placardClose;
 
 	private readonly int hoverSoundIndex = 0;
 	private readonly int notSpacializedSoundIndex = 1;

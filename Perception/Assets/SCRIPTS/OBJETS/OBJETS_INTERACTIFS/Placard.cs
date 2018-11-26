@@ -7,6 +7,8 @@ public class Placard : MonoBehaviour, IInteractive {
     private bool isOpen;
     public bool activable;
 
+    private AudioSource audioSource;
+
     public void Interact()
     {
         if (isOpen)
@@ -23,6 +25,7 @@ public class Placard : MonoBehaviour, IInteractive {
     // Use this for initialization
     void Start () {
         isOpen = false;
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +39,7 @@ public class Placard : MonoBehaviour, IInteractive {
         {
             isOpen = true;
             Debug.Log("ddd");
+            audioSource.PlayOneShot(SoundManager.Instance.placardOpen);
             transform.Rotate(0, 90, 0);
         }
 
@@ -46,6 +50,7 @@ public class Placard : MonoBehaviour, IInteractive {
         {
             isOpen = false;
             Debug.Log("ddd");
+            audioSource.PlayOneShot(SoundManager.Instance.placardClose);            
             transform.Rotate(0, -90, 0);
         }
 
