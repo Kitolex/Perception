@@ -22,6 +22,12 @@ public class BlackWhiteVision : State
     public override void Enter()
     {
         target.GetComponentInChildren<ShaderEffect>().enabled = true;
+        Material m = target.GetComponentInChildren<ShaderEffect>().material;
+
+        m.SetInt("_GrayScale", 0);
+        m.SetInt("_RedChannel", 0);
+        m.SetInt("_GreenChannel", 0);
+        m.SetInt("_BlueChannel", 0);
     }
 
     public override void Exit()
