@@ -77,10 +77,10 @@ public class GreenVision : State
 public class BlurVision : State
 {
     public float lerp = 0f, duration = 50f;
-    public float flouMin = 30f;
+    public float flouMin = 30f; // flou minimum
     public float flouMax = 130f;
     private float distanceInitiale;
-    private float flou = 1.0f;
+    private float flou;
     
     public BlurVision(GameObject target) : base(target) {
         distanceInitiale = (target.transform.position - target.GetComponent<PointVisionSemiNette>().positionVisionSemiNette.position).magnitude;
