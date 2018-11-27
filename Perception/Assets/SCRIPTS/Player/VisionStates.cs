@@ -77,16 +77,31 @@ public class GreenVision : State
 public class BlurVision : State
 {
     public float lerp = 0f, duration = 50f;
-    public float flou = 30f;
+    public float flouMin = 30f;
+    public float flouMax = 130f;
+    private float distanceInitiale;
+    private float flou = 1.0f;
     
-    public BlurVision(GameObject target) : base(target) { }
+    public BlurVision(GameObject target) : base(target) {
+        distanceInitiale = (target.transform.position - target.GetComponent<PointVisionSemiNette>().positionVisionSemiNette.position).magnitude;
+        flou = flouMax;
+    }
     
     Material m = GameObject.Find("FPSController/FirstPersonCharacter/Canvas/BlurImage").GetComponent<UnityEngine.UI.Image>().material;
     public override void Execute() {
-        float score = m.GetFloat("_Size");
+
+        float flou = Mathf.Max(flouMin, (target.transform.position - target.GetComponent<PointVisionSemiNette>().positionVisionSemiNette.position).magnitude / distanceInitiale * flouMax);
+
+        if(flou < this.flou){
+            this.flou = flou;
+        }
+
+        GrabPass.Instance.Distortion = this.flou;
+
+    /*    float score = m.GetFloat("_Size");
                 lerp += Time.deltaTime / duration;
-                score = Mathf.Lerp(score,flou,lerp); 
-                m.SetFloat("_Size", score);
+                score = Mathf.Lerp(score,this.flou,lerp); 
+                m.SetFloat("_Size", score);*/
      }
     public override void Exit() { }
 }

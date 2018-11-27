@@ -24,5 +24,6 @@ public class VisionStateMachine : StateMachine<VisionStates>{
         AddState(VisionStates.MidBlurVision,new BlurVision(gameObject) );
 
         ChangeState(VisionStates.BlackWhiteVision);
+        ChangeState(VisionStates.MidBlurVision);
     }
 }

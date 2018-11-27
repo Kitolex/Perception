@@ -7,6 +7,12 @@ using UnityEngine.UI;
 public class GrabPass : MonoBehaviour {
 	public float Distortion = 130f;
 
+	public static GrabPass Instance;
+
+	void Awake () {
+		GrabPass.Instance = this; 
+	}
+
 
 	// Use this for initialization
 	void Start () {
