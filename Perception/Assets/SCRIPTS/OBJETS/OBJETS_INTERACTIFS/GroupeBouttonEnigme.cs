@@ -14,9 +14,11 @@ public class GroupeBouttonEnigme : MonoBehaviour {
 
     private float time;
     private int timeCombinaisonCooldown;
+    [HideInInspector]
+    public List<ButtonEnigme> buttonEnigmes = new List<ButtonEnigme>();
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         bouttonAppuyer = new List<int>();
         timeCombinaisonCooldown = 5;
         time = 0.0f;
@@ -37,10 +39,19 @@ public class GroupeBouttonEnigme : MonoBehaviour {
             
             if (time+timeCombinaisonCooldown < Time.time)
             {
+                endLightAllButton();
                 bouttonAppuyer = new List<int>();
                 time = 0.0f;
             }
             
+        }
+    }
+
+    private void endLightAllButton()
+    {
+        foreach (ButtonEnigme be in buttonEnigmes)
+        {
+            be.button.GetComponent<Button>().DesactivateLight();
         }
     }
 
@@ -67,7 +78,7 @@ public class GroupeBouttonEnigme : MonoBehaviour {
 
         if (!combinaisonEchec)
         {
-            BouttonCorrect(enigmeActuel.bonnes);
+            LaunchEventReponse(enigmeActuel.bonnes);
             prochaineEnigme();
         }
     }
@@ -77,12 +88,12 @@ public class GroupeBouttonEnigme : MonoBehaviour {
     {
         if (solvableActuel && enigme[numEnigmeActuel].boutonCorrect == numero)
         {
-            BouttonCorrect(enigme[numEnigmeActuel].bonnes);
+            LaunchEventReponse(enigme[numEnigmeActuel].bonnes);
             prochaineEnigme();
         }
         else
         {
-            BouttonIncorrect(enigme[numEnigmeActuel].mauvaises);
+            LaunchEventReponse(enigme[numEnigmeActuel].mauvaises);
         }
 
     }
@@ -92,12 +103,29 @@ public class GroupeBouttonEnigme : MonoBehaviour {
         if (!(bouttonAppuyer.Contains(numero)))
         {
             bouttonAppuyer.Add(numero);
+            Button be = findButton(numero);
+            if (be != null)
+            {
+                be.ActivateLight();
+            }
             time = Time.time;
         }
         
     }
 
-    public void BouttonCorrect(string bouton)
+    private Button findButton(int numero)
+    {
+        foreach (ButtonEnigme be in buttonEnigmes)
+        {
+            if (be.indice==numero)
+            {
+                return be.button.GetComponent<Button>();
+            }
+        }
+        return null;
+    }
+
+    public void LaunchEventReponse(string bouton)
     {
         foreach (EventManager eM in GetComponents<EventManager>())
         {
@@ -108,16 +136,6 @@ public class GroupeBouttonEnigme : MonoBehaviour {
         }
     }
 
-    public void BouttonIncorrect(string bouton)
-    {
-        foreach (EventManager eM in GetComponents<EventManager>())
-        {
-            if (eM.nomEvent.Equals(bouton))
-            {
-                eM.activation();
-            }
-        }
-    }
 
     private void prochaineEnigme()
     {
