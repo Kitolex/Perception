@@ -9,10 +9,13 @@ public class Button : MonoBehaviour, IInteractive
     public AudioClip sound;
     private AudioSource audioSource;
 
-   
+    private Light light;
+
+
 
     void Awake()
     {
+        light = GetComponentInChildren<Light>();
         this.audioSource = GetComponent<AudioSource>();
         eventManager = GetComponent<EventManager>();
     }
@@ -28,5 +31,16 @@ public class Button : MonoBehaviour, IInteractive
     public bool IsActive()
     {
         return true;
+    }
+
+
+    public void ActivateLight()
+    {
+        light.enabled = true;
+    }
+
+    public void DesactivateLight()
+    {
+        light.enabled = false;
     }
 }
