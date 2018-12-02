@@ -25,8 +25,8 @@ public class VisionStateMachine : StateMachine<VisionStates>{
         AddState(VisionStates.FlashVision, new FlashVision(gameObject));
 
 
-        ChangeState(VisionStates.FlashVision);
-        /*ChangeState(VisionStates.BlackWhiteVision);
-        ChangeState(VisionStates.MidBlurVision);*/
+        //ChangeState(VisionStates.FlashVision);
+        ChangeState(VisionStates.BlackWhiteVision);
+        ChangeState(VisionStates.MidBlurVision);
     }
 }
