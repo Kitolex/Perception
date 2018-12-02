@@ -22,8 +22,11 @@ public class VisionStateMachine : StateMachine<VisionStates>{
         AddState(VisionStates.GreenVision,new GreenVision(gameObject) );
         AddState(VisionStates.BlueVision,new BlueVision(gameObject) );
         AddState(VisionStates.MidBlurVision,new BlurVision(gameObject) );
+        AddState(VisionStates.FlashVision, new FlashVision(gameObject));
 
-        ChangeState(VisionStates.BlackWhiteVision);
-        ChangeState(VisionStates.MidBlurVision);
+
+        ChangeState(VisionStates.FlashVision);
+        /*ChangeState(VisionStates.BlackWhiteVision);
+        ChangeState(VisionStates.MidBlurVision);*/
     }
 }

@@ -12,7 +12,8 @@ public enum VisionStates
     ChromaVision,
     ThermalVision,
     NightVision,
-    MidBlurVision
+    MidBlurVision,
+    FlashVision
 }
 
 public class BlackWhiteVision : State
@@ -166,6 +167,34 @@ public class RedVision : State
     
     public override void Exit() { }
 }
+
+public class FlashVision : State
+{
+    public float lerp = 0f, duration = 2f, intensitymax = 10;
+    int iterationmax = 16;
+    public FlashVision(GameObject target) : base(target) { }
+
+    public override void Enter(){
+        target.GetComponentInChildren<BloomEffect>().intensity = intensitymax;
+        target.GetComponentInChildren<BloomEffect>().iterations = iterationmax;
+
+
+    }
+
+    public override void Execute() { 
+        float intensité = intensitymax;
+        int iteration = iterationmax;
+        lerp += Time.deltaTime / duration;
+        intensité = Mathf.Lerp(intensité,1,lerp); 
+        target.GetComponentInChildren<BloomEffect>().intensity = intensité;
+        
+    }
+    public override void Exit() {
+                target.GetComponentInChildren<BloomEffect>().iterations = 4;
+
+     }
+}
+
 
 public class BlueVision : State
 {
