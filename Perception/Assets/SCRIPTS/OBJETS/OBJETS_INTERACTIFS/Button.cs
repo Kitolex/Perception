@@ -6,7 +6,8 @@ public class Button : MonoBehaviour, IInteractive
 {
 
     private EventManager eventManager;
-    public AudioClip sound;
+    public AudioClip soundOK;
+    public AudioClip soundError;
     private AudioSource audioSource;
 
     private Light light;
@@ -24,7 +25,7 @@ public class Button : MonoBehaviour, IInteractive
 
     public void Interact()
     {
-        this.audioSource.PlayOneShot(sound);
+        this.audioSource.PlayOneShot(soundOK);
         eventManager.activation();
     }
 
