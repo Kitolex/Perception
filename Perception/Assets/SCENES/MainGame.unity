@@ -3930,31 +3930,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f82ffc296a05ad4448ebce37e898ba24,
     type: 3}
   m_PrefabInternal: {fileID: 603426051}
---- !u!21 &604419298
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: GrabPassBlur
-  m_Shader: {fileID: 4800000, guid: a811c2aa6d64f654291c8cd0a8d8ff27, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Size: 130
-    m_Colors: []
 --- !u!1001 &605415470
 Prefab:
   m_ObjectHideFlags: 0
@@ -6629,6 +6604,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f40863ffc8e0bd847829d848965ae989, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1006882695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 4c2a2067663ceb7469949df7ef6bb606,
+    type: 3}
+  m_PrefabInternal: {fileID: 1747123030}
+--- !u!114 &1006882699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1006882695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb124f482a832e74fb687eab7944a6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1014920798
 GameObject:
   m_ObjectHideFlags: 0
@@ -7869,6 +7860,31 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117aea67ecde6ed44a15c76a53139de1, type: 2}
   m_IsPrefabAsset: 0
+--- !u!21 &1142519674
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: GrabPassBlur
+  m_Shader: {fileID: 4800000, guid: a811c2aa6d64f654291c8cd0a8d8ff27, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Size: 130
+    m_Colors: []
 --- !u!4 &1157343343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 39b41963b274dcc42b830a7a67a8e520,
@@ -11216,11 +11232,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2a2067663ceb7469949df7ef6bb606, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.02
+      value: 3.828
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2a2067663ceb7469949df7ef6bb606, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.0442762
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c2a2067663ceb7469949df7ef6bb606, type: 3}
       propertyPath: m_LocalRotation.x
@@ -11280,7 +11296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4c2a2067663ceb7469949df7ef6bb606, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2a2067663ceb7469949df7ef6bb606, type: 3}
@@ -12085,6 +12101,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
+  - go: {fileID: 1006882699}
+    name:
+    - ProjecteurEvenement
+    indice: 00000000
+    nameM:
+    - flash
+    - activation
+    - desactivation
+    - CancelInvoke
+    - CancelInvoke
+    - StopCoroutine
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    - set_tag
+    - SendMessageUpwards
+    - SendMessage
+    - BroadcastMessage
+    - set_name
+    indiceM: 00000000
+    enumParam: 02000000
+    paramInt: 0
+    paramBool: 0
+    paramString: 
   - go: {fileID: 1251091911}
     name:
     - DoorEvenement
