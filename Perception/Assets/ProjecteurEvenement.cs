@@ -4,14 +4,37 @@ using UnityEngine;
 
 public class ProjecteurEvenement : Evenement {
 
+    public Material m;
+    public float intensite=2;
+    public List<GameObject> spot;
+
+
     public void flash()
     {
-        
-        Material mat = GetComponent<Renderer>().materials[2];
-        Debug.Log(mat.name);
-        mat.EnableKeyword("_EMISSION");
-        VisionStateMachine.Instance.ChangeState(VisionStates.FlashVision);
+        Debug.Log("flash");
+        foreach (GameObject go in spot)
+        {
+            Material m = go.GetComponent<Renderer>().material;
+            Debug.Log(m.name);
+            m.EnableKeyword("_EMISSION");
+            VisionStateMachine.Instance.ChangeState(VisionStates.FlashVision);
+        }
+
+
         
     }
+    override
+    public bool evenementIsEnCours()
+    {
+        if (intensite<1.1)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+
+
 
 }

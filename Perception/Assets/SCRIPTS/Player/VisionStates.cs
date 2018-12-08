@@ -13,7 +13,8 @@ public enum VisionStates
     ThermalVision,
     NightVision,
     MidBlurVision,
-    FlashVision
+    FlashVision,
+    LostBlur
 }
 
 public class BlackWhiteVision : State
@@ -114,12 +115,17 @@ public class LostBlurVision : State
     
     public LostBlurVision(GameObject target) : base(target) { }
     
-    Material m = GameObject.Find("FPSController/FirstPersonCharacter/Canvas/BlurImage").GetComponent<UnityEngine.UI.Image>().material;
+    GrabPass gb = GameObject.Find("FPSController/FirstPersonCharacter/Canvas/BlurImage").GetComponent<GrabPass>();
     public override void Execute() {
-        float score = m.GetFloat("_Size");
-                lerp += Time.deltaTime / duration;
-                score = Mathf.Lerp(score,flou,lerp); 
-                m.SetFloat("_Size", score);
+       // Debug.Log("LostBlurVision_Execute");
+        float score = gb.Distortion;
+        if (score > 0.1f)
+        {
+            lerp += Time.deltaTime / duration;
+            score = Mathf.Lerp(score, flou, lerp);
+            gb.Distortion = score;
+        } 
+
      }
     public override void Exit() { }
 }
@@ -173,10 +179,12 @@ public class FlashVision : State
     public float lerp = 0f, duration = 2f, intensitymax = 10;
     int iterationmax = 16;
     public FlashVision(GameObject target) : base(target) { }
+    public ProjecteurEvenement PerceptionEvenement;
 
     public override void Enter(){
         target.GetComponentInChildren<BloomEffect>().intensity = intensitymax;
         target.GetComponentInChildren<BloomEffect>().iterations = iterationmax;
+        PerceptionEvenement = GameObject.Find("Projecteur").GetComponent<ProjecteurEvenement>();
 
 
     }
@@ -187,6 +195,7 @@ public class FlashVision : State
         lerp += Time.deltaTime / duration;
         intensité = Mathf.Lerp(intensité,1,lerp); 
         target.GetComponentInChildren<BloomEffect>().intensity = intensité;
+        PerceptionEvenement.intensite = intensité;
         
     }
     public override void Exit() {
