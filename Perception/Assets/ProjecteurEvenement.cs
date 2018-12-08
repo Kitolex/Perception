@@ -12,6 +12,7 @@ public class ProjecteurEvenement : Evenement {
     public void flash()
     {
         Debug.Log("flash");
+        SoundManager.Instance.PlayOneTimeNotSpacializedSound(SoundManager.Instance.projecteurFlash);
         foreach (GameObject go in spot)
         {
             Material m = go.GetComponent<Renderer>().material;
@@ -19,9 +20,6 @@ public class ProjecteurEvenement : Evenement {
             m.EnableKeyword("_EMISSION");
             VisionStateMachine.Instance.ChangeState(VisionStates.FlashVision);
         }
-
-
-        
     }
     override
     public bool evenementIsEnCours()
