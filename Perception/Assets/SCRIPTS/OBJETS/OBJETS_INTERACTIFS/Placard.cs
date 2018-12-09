@@ -56,7 +56,7 @@ public class Placard : MonoBehaviour, IInteractive {
         if (activable)
         {
             isOpen = true;
-            Debug.Log("ddd");
+            //Debug.Log("ddd");
             audioSource.PlayOneShot(SoundManager.Instance.placardOpen);
             enMouvement = true;
             timer = Time.time;
