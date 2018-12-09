@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ButtonLight : MonoBehaviour {
 
+    public Material matButtonOn;
+    public Material matButtonOff;
+    public Renderer meshRendererButton;
+
     private Light light;
 
 	void Start () {
@@ -13,10 +17,12 @@ public class ButtonLight : MonoBehaviour {
 	public void ActivateLight()
     {
         light.enabled = true;
+        meshRendererButton.material.color = Color.green;
     }
 
     public void DesactivateLight()
     {
         light.enabled = false;
+        meshRendererButton.material.color = Color.red;
     }
 }

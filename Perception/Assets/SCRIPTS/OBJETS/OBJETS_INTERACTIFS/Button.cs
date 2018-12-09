@@ -8,6 +8,7 @@ public class Button : MonoBehaviour, IInteractive
     private EventManager eventManager;
     public AudioClip soundOK;
     public AudioClip soundError;
+    public Renderer meshRendererButton;
     private AudioSource audioSource;
 
     private Light light;
@@ -38,10 +39,12 @@ public class Button : MonoBehaviour, IInteractive
     public void ActivateLight()
     {
         light.enabled = true;
+        meshRendererButton.material.color = Color.green;
     }
 
     public void DesactivateLight()
     {
         light.enabled = false;
+        meshRendererButton.material.color = Color.red;
     }
 }
