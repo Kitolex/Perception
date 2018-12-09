@@ -26,7 +26,7 @@ public class Button : MonoBehaviour, IInteractive
 
     public void Interact()
     {
-        this.audioSource.PlayOneShot(soundOK);
+        //this.audioSource.PlayOneShot(soundOK);
         eventManager.activation();
     }
 

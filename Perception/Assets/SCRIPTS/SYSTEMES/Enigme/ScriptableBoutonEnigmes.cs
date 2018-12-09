@@ -16,5 +16,5 @@ public class ScriptableBoutonEnigmes : ScriptableObject {
     public List<int> listeCombinaison;
     [HideInInspector]
     public int boutonCorrect;
-
+    public string nonSolvable;
 }

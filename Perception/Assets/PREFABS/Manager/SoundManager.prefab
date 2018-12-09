@@ -253,3 +253,4 @@ MonoBehaviour:
   placardOpen: {fileID: 8300000, guid: a5f02ded11906e74fb9040e44d94ea1f, type: 3}
   placardClose: {fileID: 8300000, guid: fa3c971aeab2143489ffc6c128ca2af1, type: 3}
   placardLocked: {fileID: 8300000, guid: 74f8dadc424fea147bdbaa160b3574a4, type: 3}
+  projecteurFlash: {fileID: 8300000, guid: 39073ee5d36f1534da97d7a6fb8f1f1f, type: 3}

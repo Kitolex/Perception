@@ -10,6 +10,7 @@ public class GroupeBouttonEnigme : MonoBehaviour {
     [HideInInspector]
     public bool solvableActuel;
 
+
     public List<int> bouttonAppuyer;
 
     private float time;
@@ -17,8 +18,14 @@ public class GroupeBouttonEnigme : MonoBehaviour {
     [HideInInspector]
     public List<ButtonEnigme> buttonEnigmes = new List<ButtonEnigme>();
 
+    public AudioClip sonCorrect;
+    public AudioClip sonIncorrect;
+    private AudioSource audioSource;
     // Use this for initialization
+    public bool correctCombinaison;
     void Start () {
+        correctCombinaison = false;
+        this.audioSource = GetComponent<AudioSource>();
         bouttonAppuyer = new List<int>();
         timeCombinaisonCooldown = 5;
         time = 0.0f;
@@ -39,6 +46,15 @@ public class GroupeBouttonEnigme : MonoBehaviour {
             
             if (time+timeCombinaisonCooldown < Time.time)
             {
+                if (!correctCombinaison)
+                {
+                    this.audioSource.PlayOneShot(sonIncorrect);
+                }
+                else
+                {
+                    correctCombinaison = false;
+                }
+                
                 endLightAllButton();
                 bouttonAppuyer = new List<int>();
                 time = 0.0f;
@@ -60,41 +76,69 @@ public class GroupeBouttonEnigme : MonoBehaviour {
         ScriptableBoutonEnigmes enigmeActuel = getEnigmeActuel();
 
         bool combinaisonEchec = false;
-        if (solvableActuel && enigmeActuel.listeCombinaison.Count == bouttonAppuyer.Count)
+
+        if (solvableActuel)
         {
-            for (int i=0;i< bouttonAppuyer.Count;i++)
+            if (enigmeActuel.listeCombinaison.Count == bouttonAppuyer.Count)
             {
-                if (enigmeActuel.listeCombinaison[i] != bouttonAppuyer[i])
+                for (int i = 0; i < bouttonAppuyer.Count; i++)
                 {
-                    combinaisonEchec = true;
+                    if (enigmeActuel.listeCombinaison[i] != bouttonAppuyer[i])
+                    {
+                        combinaisonEchec = true;
+                    }
+
                 }
-                
+            }
+            else
+            {
+                correctCombinaison = false;
+                combinaisonEchec = true;
+            }
+
+            if (!combinaisonEchec)
+            {
+                LaunchEventReponse(enigmeActuel.bonnes);
+                correctCombinaison = true;
+                this.audioSource.PlayOneShot(sonCorrect);
+                prochaineEnigme();
             }
         }
         else
         {
-            combinaisonEchec = true;
+            this.audioSource.PlayOneShot(sonIncorrect);
+            LaunchEventReponse(enigmeActuel.nonSolvable);
         }
 
-        if (!combinaisonEchec)
-        {
-            LaunchEventReponse(enigmeActuel.bonnes);
-            prochaineEnigme();
-        }
+
+
+
     }
 
 
     public void TestOneButton(int numero)
     {
-        if (solvableActuel && enigme[numEnigmeActuel].boutonCorrect == numero)
+
+        if (solvableActuel)
         {
-            LaunchEventReponse(enigme[numEnigmeActuel].bonnes);
-            prochaineEnigme();
+            if (enigme[numEnigmeActuel].boutonCorrect == numero)
+            {
+                LaunchEventReponse(enigme[numEnigmeActuel].bonnes);
+                this.audioSource.PlayOneShot(sonCorrect);
+                prochaineEnigme();
+            }
+            else
+            {
+                this.audioSource.PlayOneShot(sonIncorrect);
+                LaunchEventReponse(enigme[numEnigmeActuel].mauvaises);
+            }
         }
         else
         {
-            LaunchEventReponse(enigme[numEnigmeActuel].mauvaises);
+            LaunchEventReponse(enigme[numEnigmeActuel].nonSolvable);
         }
+
+
 
     }
 
