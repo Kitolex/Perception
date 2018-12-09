@@ -27,6 +27,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 m_OriginalCameraPosition;
         private bool m_Jumping;
 
+        [Header("Animator slime")]
+        public Animator animator;
+
         // Use this for initialization
         private void Start()
         {
@@ -111,7 +114,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Input.Normalize();
             }
-
+            
+            //animator.SetBool("Walk", m_Input.sqrMagnitude > 0.0f);
         }
 
 

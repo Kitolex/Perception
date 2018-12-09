@@ -18,7 +18,7 @@ public class EventManager : MonoBehaviour
     public void activation()
     {
         index = 0;
-        //		Debug.Log ("ActivationEvenement");
+        		//Debug.Log ("ActivationEvenement");
         if (index < es.Count)
         {
             lancerEvenement(es[index]);
@@ -29,9 +29,10 @@ public class EventManager : MonoBehaviour
     {
         for (var i = 0; i < 1; i++)
         {
+            //
             //Debug.Log("WAIT FIN " + e.name[0]);
             yield return new WaitWhile(() => e.go.evenementIsEnCours());
-           // Debug.Log("UNWAIT" + e.name[0]);
+          //  Debug.Log("UNWAIT" + e.name[0]);
         }
         index++;
         if (index < es.Count)

@@ -23,6 +23,7 @@ public class VisionStateMachine : StateMachine<VisionStates>{
         AddState(VisionStates.BlueVision,new BlueVision(gameObject) );
         AddState(VisionStates.MidBlurVision,new BlurVision(gameObject) );
         AddState(VisionStates.FlashVision, new FlashVision(gameObject));
+        AddState(VisionStates.LostBlur, new LostBlurVision(gameObject));
 
 
         //ChangeState(VisionStates.FlashVision);

@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1660044624862938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.468, z: -0.002}
+  m_LocalPosition: {x: 0, y: 1.714, z: -0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4697877788730474}
@@ -224,7 +224,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1205127943502300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4775180432770816}
@@ -234,7 +234,7 @@ Transform:
   - {fileID: 4088558342451754}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -193.53699, z: 0}
 --- !u!4 &4775180432770816
 Transform:
   m_ObjectHideFlags: 1
@@ -347,7 +347,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 7a8147fe968bb0048a056adcfa2e669a, type: 2}
-  - {fileID: 2100000, guid: c5d474018b3634640afef01b38332736, type: 2}
+  - {fileID: 2100000, guid: cb8a8a460223ebb458dd97775902a250, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -608,7 +608,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 0.25227976
+  m_Range: 0.47
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -645,6 +645,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b996a037b8db2b4f83ed0b40ada3e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matButtonOn: {fileID: 2100000, guid: 969387f51090dce48aa4ba1c9aba7924, type: 2}
+  matButtonOff: {fileID: 2100000, guid: fff9ae74447b59445a2e35bfab812872, type: 2}
+  meshRendererButton: {fileID: 23355480709803454}
 --- !u!114 &114930029119564816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -656,7 +659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b653c0f06f0094099b9c15582246cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 2346ffd742f5aba4a85e4b95291ca39b, type: 3}
+  soundOK: {fileID: 8300000, guid: 2346ffd742f5aba4a85e4b95291ca39b, type: 3}
+  soundError: {fileID: 8300000, guid: 73d599ba0fe35964ab5b22a19c088209, type: 3}
+  meshRendererButton: {fileID: 23355480709803454}
 --- !u!114 &114978894684193788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -692,7 +697,7 @@ MonoBehaviour:
     - set_name
     indiceM: 00000000
     enumParam: 09000000
-    paramInt: 2
+    paramInt: 1
     paramBool: 0
     paramString: 
   index: 0
