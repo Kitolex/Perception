@@ -15,15 +15,23 @@ public class GroupeButtonEvenement : Evenement {
 
     public void boutonAppuyer(int numero)
     {
-        if (gbe.getTypeEnigmeActuel().Equals(TypeEnigmeButton.Groupe))
+        if (gbe.getEnigmeActuel().getisEncours() && !gbe.finAllEnigme)
         {
-            gbe.TestOneButton(numero);
-        }else if (gbe.getTypeEnigmeActuel().Equals(TypeEnigmeButton.Combinaison))
-        {
-            gbe.addCombinaison(numero);
-            gbe.TestCombinaison();
-        }
-        
+            if (gbe.getTypeEnigmeActuel().Equals(TypeEnigmeButton.Groupe))
+            {
+                gbe.TestOneButton(numero);
+            }
+            else if (gbe.getTypeEnigmeActuel().Equals(TypeEnigmeButton.Combinaison))
+            {
+                gbe.addCombinaison(numero);
+               // gbe.TestCombinaison();
+            }
+        }     
+    }
+
+    public void setActiveEnigmeActuel(bool etat)
+    {
+        gbe.getEnigmeActuel().setisEncours(etat);
     }
 
     public void setSolvable(bool solvable)

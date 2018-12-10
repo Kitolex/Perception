@@ -23,11 +23,14 @@ public class GroupeBouttonEnigme : MonoBehaviour {
     private AudioSource audioSource;
     // Use this for initialization
     public bool correctCombinaison;
+    public bool finAllEnigme;
+
     void Start () {
+        finAllEnigme = false;
         correctCombinaison = false;
         this.audioSource = GetComponent<AudioSource>();
         bouttonAppuyer = new List<int>();
-        timeCombinaisonCooldown = 5;
+        timeCombinaisonCooldown = 4;
         time = 0.0f;
         numEnigmeActuel = 0;
         if(enigme.Count>0)
@@ -44,11 +47,11 @@ public class GroupeBouttonEnigme : MonoBehaviour {
         if (bouttonAppuyer.Count>0)
         {
             
-            if (time+timeCombinaisonCooldown < Time.time)
+            if (time+timeCombinaisonCooldown < Time.time  || bouttonAppuyer.Count==buttonEnigmes.Count)
             {
                 if (!correctCombinaison)
                 {
-                    this.audioSource.PlayOneShot(sonIncorrect);
+                    EnigmeEchec();
                 }
                 else
                 {
@@ -71,102 +74,109 @@ public class GroupeBouttonEnigme : MonoBehaviour {
         }
     }
 
+
+    public void TestOneButton(int numero)
+    {
+
+
+        if (solvableActuel)
+        {
+            if (enigme[numEnigmeActuel].boutonCorrect == numero)
+            {
+                EnigmeReussi();
+
+            }
+            else
+            {
+                EnigmeEchec();
+            }
+        }
+        else
+        {
+            EnigmeNonSolvable();
+        }
+
+    }
+
     public void TestCombinaison()
     {
         ScriptableBoutonEnigmes enigmeActuel = getEnigmeActuel();
 
         bool combinaisonEchec = false;
 
-        if (solvableActuel)
+        if (enigmeActuel.listeCombinaison.Count == bouttonAppuyer.Count)
         {
-            if (enigmeActuel.listeCombinaison.Count == bouttonAppuyer.Count)
+            for (int i = 0; i < bouttonAppuyer.Count; i++)
             {
-                for (int i = 0; i < bouttonAppuyer.Count; i++)
+                if (enigmeActuel.listeCombinaison[i] != bouttonAppuyer[i])
                 {
-                    if (enigmeActuel.listeCombinaison[i] != bouttonAppuyer[i])
-                    {
-                        combinaisonEchec = true;
-                    }
-
+                    combinaisonEchec = true;
                 }
-            }
-            else
-            {
-                correctCombinaison = false;
-                combinaisonEchec = true;
-            }
 
-            if (!combinaisonEchec)
-            {
-                LaunchEventReponse(enigmeActuel.bonnes);
-                correctCombinaison = true;
-                this.audioSource.PlayOneShot(sonCorrect);
-                prochaineEnigme();
             }
         }
         else
         {
-            this.audioSource.PlayOneShot(sonIncorrect);
-            LaunchEventReponse(enigmeActuel.nonSolvable);
+            correctCombinaison = false;
+            combinaisonEchec = true;
         }
 
+        if (!combinaisonEchec)
+        {
 
-
-
+            correctCombinaison = true;
+            EnigmeReussi();
+        }
+      
     }
 
 
-    public void TestOneButton(int numero)
-    {
-
-        if (solvableActuel)
-        {
-            if (enigme[numEnigmeActuel].boutonCorrect == numero)
-            {
-                LaunchEventReponse(enigme[numEnigmeActuel].bonnes);
-                this.audioSource.PlayOneShot(sonCorrect);
-                prochaineEnigme();
-            }
-            else
-            {
-                this.audioSource.PlayOneShot(sonIncorrect);
-                LaunchEventReponse(enigme[numEnigmeActuel].mauvaises);
-            }
-        }
-        else
-        {
-            LaunchEventReponse(enigme[numEnigmeActuel].nonSolvable);
-        }
-
-
-
-    }
 
     public void addCombinaison(int numero)
     {
-        if (!(bouttonAppuyer.Contains(numero)))
+        if (solvableActuel)
         {
-            bouttonAppuyer.Add(numero);
-            Button be = findButton(numero);
-            if (be != null)
+            if (!(bouttonAppuyer.Contains(numero)))
             {
-                be.ActivateLight();
+                bouttonAppuyer.Add(numero);
+                Button be = findButton(numero);
+                if (be != null)
+                {
+                    be.ActivateLight();
+                }
+                time = Time.time;
+                TestCombinaison();
             }
-            time = Time.time;
         }
+        else
+        {
+            EnigmeNonSolvable();
+        }
+        
         
     }
 
-    private Button findButton(int numero)
+
+
+    public void EnigmeReussi()
     {
-        foreach (ButtonEnigme be in buttonEnigmes)
-        {
-            if (be.indice==numero)
-            {
-                return be.button.GetComponent<Button>();
-            }
-        }
-        return null;
+        ScriptableBoutonEnigmes butonOld = getEnigmeActuel();
+        prochaineEnigme();
+        LaunchEventReponse(butonOld.bonnes);
+        this.audioSource.PlayOneShot(sonCorrect);
+        
+    }
+
+    public void EnigmeEchec()
+    {
+        LaunchEventReponse(enigme[numEnigmeActuel].mauvaises);
+        this.audioSource.PlayOneShot(sonIncorrect);
+    }
+
+    public void EnigmeNonSolvable()
+    {
+        this.audioSource.PlayOneShot(sonIncorrect);
+        LaunchEventReponse(enigme[numEnigmeActuel].nonSolvable);
     }
 
     public void LaunchEventReponse(string bouton)
@@ -188,6 +198,10 @@ public class GroupeBouttonEnigme : MonoBehaviour {
             numEnigmeActuel++;
             solvableActuel = enigme[numEnigmeActuel].solvable;
         }
+        else
+        {
+            finAllEnigme = true;
+        }
 
     }
 
@@ -201,6 +215,18 @@ public class GroupeBouttonEnigme : MonoBehaviour {
         return getEnigmeActuel().typeEnigme;
     }
 
+
+    private Button findButton(int numero)
+    {
+        foreach (ButtonEnigme be in buttonEnigmes)
+        {
+            if (be.indice == numero)
+            {
+                return be.button.GetComponent<Button>();
+            }
+        }
+        return null;
+    }
 
 
 }

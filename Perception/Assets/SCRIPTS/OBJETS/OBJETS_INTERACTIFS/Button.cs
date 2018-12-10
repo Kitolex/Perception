@@ -13,6 +13,8 @@ public class Button : MonoBehaviour, IInteractive
 
     private Light light;
 
+    public bool NonEnigme;
+
 
 
     void Awake()
@@ -26,13 +28,26 @@ public class Button : MonoBehaviour, IInteractive
 
     public void Interact()
     {
-        //this.audioSource.PlayOneShot(soundOK);
-        eventManager.activation();
+        
+        if (NonEnigme)
+        {
+            this.audioSource.PlayOneShot(soundOK);
+        }
+
+            eventManager.activation();
+        
+        
     }
 
     public bool IsActive()
     {
-        return true;
+        if (NonEnigme)
+        {
+            return true;
+        }
+        GroupeBouttonEnigme gbe = GetComponentInParent<GroupeBouttonEnigme>();
+        return gbe.getEnigmeActuel().getisEncours() && !gbe.finAllEnigme;
+        
     }
 
 

@@ -17,4 +17,16 @@ public class ScriptableBoutonEnigmes : ScriptableObject {
     [HideInInspector]
     public int boutonCorrect;
     public string nonSolvable;
+
+    private bool isEnCours=false;
+
+    public void setisEncours(bool etat)
+    {
+        isEnCours = etat;
+    }
+
+    public bool getisEncours()
+    {
+        return isEnCours;
+    }
 }
