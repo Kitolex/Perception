@@ -176,26 +176,38 @@ public class RedVision : State
 
 public class FlashVision : State
 {
-    public float lerp = 0f, duration = 2f, intensitymax = 10;
+    public float lerpFlash = 0f, durationflash = 2f, intensitymax = 10;
+    public float lerpFlou = 0f, durationFlou = 4f;
     int iterationmax = 16;
     public FlashVision(GameObject target) : base(target) { }
     public ProjecteurEvenement PerceptionEvenement;
 
+    public float flou = 0f;
+
+    GrabPass gb = GameObject.Find("FPSController/FirstPersonCharacter/Canvas/BlurImage").GetComponent<GrabPass>();
     public override void Enter(){
         target.GetComponentInChildren<BloomEffect>().intensity = intensitymax;
         target.GetComponentInChildren<BloomEffect>().iterations = iterationmax;
         PerceptionEvenement = GameObject.Find("Projecteur").GetComponent<ProjecteurEvenement>();
-
+        
 
     }
 
     public override void Execute() { 
         float intensité = intensitymax;
         int iteration = iterationmax;
-        lerp += Time.deltaTime / duration;
-        intensité = Mathf.Lerp(intensité,1,lerp); 
+        lerpFlash += Time.deltaTime / durationflash;
+        intensité = Mathf.Lerp(intensité,1,lerpFlash); 
         target.GetComponentInChildren<BloomEffect>().intensity = intensité;
         PerceptionEvenement.intensite = intensité;
+
+        float score = gb.Distortion;
+        if (score > 0.1f)
+        {
+            lerpFlou += Time.deltaTime / durationFlou;
+            score = Mathf.Lerp(score, flou, lerpFlou);
+            gb.Distortion = score;
+        } 
         
     }
     public override void Exit() {
