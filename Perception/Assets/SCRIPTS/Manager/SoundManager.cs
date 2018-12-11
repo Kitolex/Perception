@@ -26,6 +26,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip placardOpen;
 	public AudioClip placardClose;
 	public AudioClip placardLocked;
+	public AudioClip projecteurFlash;
 
 	private readonly int hoverSoundIndex = 0;
 	private readonly int notSpacializedSoundIndex = 1;
