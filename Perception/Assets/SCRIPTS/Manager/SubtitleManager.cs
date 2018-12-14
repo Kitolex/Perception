@@ -16,6 +16,8 @@ public class SubtitleManager : MonoBehaviour {
 	private string[] currentTexts;
 	private int currentTextsIndice;
 
+
+
 	void Awake () {
 		if(SubtitleManager.Instance == null) {
 			SubtitleManager.Instance = this;
@@ -31,7 +33,7 @@ public class SubtitleManager : MonoBehaviour {
 			this.texts[nt.title] = nt.displayedTexts;
 		}
 
-		// this.startTextsSequence("Text1");
+		this.startTextsSequence("demarrage");
 	}
 
 	public void startTextsSequence (string title) {
@@ -68,8 +70,8 @@ public class SubtitleManager : MonoBehaviour {
 
 	private float estimatedTimeToRead (string text) {
 
-		int wordCount = text.Split(' ').Length;
+		int wordCount = Mathf.Max(text.Split(' ').Length,10);
 
-		return (float)wordCount / 200.0f * 60.0f * 1.2f;
+		return (float)wordCount / 200.0f * 60.0f *1.1f;
 	}
 }

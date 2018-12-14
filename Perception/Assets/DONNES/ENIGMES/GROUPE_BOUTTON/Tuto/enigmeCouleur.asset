@@ -17,3 +17,4 @@ MonoBehaviour:
   solvable: 0
   listeCombinaison: 
   boutonCorrect: 4
+  nonSolvable: nonSolvable

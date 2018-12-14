@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b848d85a07cf3c445b9b0dbf5f9f0804, type: 3}
+  m_Name: demarrage
+  m_EditorClassIdentifier: 
+  title: demarrage
+  displayedTexts:
+  - "Scientifique aveugle : Regarde il se r\xE9veille."
+  - "Scientifique maladroit : Tu pense qu'il va r\xE9ussir celui l\xE0 ?"
+  - "Scientifique fou : Je sais pas. Mes tests sont pl\xFBtot simple, je trouve...
+    \ "

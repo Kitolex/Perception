@@ -26,6 +26,7 @@ public class GroupeBouttonEnigme : MonoBehaviour {
     public bool finAllEnigme;
 
     void Start () {
+        enigme[numEnigmeActuel].setisEncours(false);
         finAllEnigme = false;
         correctCombinaison = false;
         this.audioSource = GetComponent<AudioSource>();
@@ -42,8 +43,9 @@ public class GroupeBouttonEnigme : MonoBehaviour {
 
     }
 
-    private void Update()
+    void Update()
     {
+        Debug.Log(gameObject.name + "/" + getEnigmeActuel().name +"/"+ getEnigmeActuel().getisEncours());
         if (bouttonAppuyer.Count>0)
         {
             
@@ -195,8 +197,10 @@ public class GroupeBouttonEnigme : MonoBehaviour {
     {
         if (enigme.Count> numEnigmeActuel+1)
         {
+            
             numEnigmeActuel++;
             solvableActuel = enigme[numEnigmeActuel].solvable;
+            enigme[numEnigmeActuel].setisEncours(false);
         }
         else
         {

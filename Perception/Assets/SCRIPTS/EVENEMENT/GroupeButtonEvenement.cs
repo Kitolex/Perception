@@ -15,6 +15,7 @@ public class GroupeButtonEvenement : Evenement {
 
     public void boutonAppuyer(int numero)
     {
+        Debug.Log(gbe.getEnigmeActuel().getisEncours());
         if (gbe.getEnigmeActuel().getisEncours() && !gbe.finAllEnigme)
         {
             if (gbe.getTypeEnigmeActuel().Equals(TypeEnigmeButton.Groupe))

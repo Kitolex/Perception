@@ -18,7 +18,9 @@ public class ScriptableBoutonEnigmes : ScriptableObject {
     public int boutonCorrect;
     public string nonSolvable;
 
-    private bool isEnCours=false;
+    private bool isEnCours;
+
+
 
     public void setisEncours(bool etat)
     {

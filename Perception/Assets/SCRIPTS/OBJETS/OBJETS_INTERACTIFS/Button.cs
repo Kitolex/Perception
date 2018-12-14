@@ -15,10 +15,13 @@ public class Button : MonoBehaviour, IInteractive
 
     public bool NonEnigme;
 
+    private bool activableNonEnigme;
+
 
 
     void Awake()
     {
+        activableNonEnigme = true;
         light = GetComponentInChildren<Light>();
         this.audioSource = GetComponent<AudioSource>();
         eventManager = GetComponent<EventManager>();
@@ -31,19 +34,29 @@ public class Button : MonoBehaviour, IInteractive
         
         if (NonEnigme)
         {
-            this.audioSource.PlayOneShot(soundOK);
+            if (activableNonEnigme)
+            {
+                this.audioSource.PlayOneShot(soundOK);
+                activableNonEnigme = false;
+                eventManager.activation();
+            }
+
+        }
+        else
+        {
+            eventManager.activation();
         }
 
-            eventManager.activation();
         
-        
+
+
     }
 
     public bool IsActive()
     {
         if (NonEnigme)
         {
-            return true;
+            return activableNonEnigme;
         }
         GroupeBouttonEnigme gbe = GetComponentInParent<GroupeBouttonEnigme>();
         return gbe.getEnigmeActuel().getisEncours() && !gbe.finAllEnigme;
