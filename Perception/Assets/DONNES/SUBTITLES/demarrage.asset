@@ -13,7 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: demarrage
   displayedTexts:
-  - "Scientifique aveugle : Regarde il se r\xE9veille."
-  - "Scientifique maladroit : Tu pense qu'il va r\xE9ussir celui l\xE0 ?"
-  - "Scientifique fou : Je sais pas. Mes tests sont pl\xFBtot simple, je trouve...
-    \ "
+  - "Scientifique aveugle : Regarde, il se r\xE9veille."
+  - "Scientifique maladroit : Tu penses qu'il va r\xE9ussir celui-l\xE0 ?"
+  - "Scientifique fou : Je ne sais pas. Mes tests sont plut\xF4t simples, je trouve..."

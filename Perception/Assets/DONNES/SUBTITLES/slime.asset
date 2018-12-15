@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: slime
   displayedTexts:
-  - 'Scientifique aveugle : Regarde toi dans le miroir.'
+  - 'Scientifique aveugle : Regarde-toi dans le miroir.'
   - 'Scientifique aveugle : Chanceux...'

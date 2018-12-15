@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: enigmeFormeErreur
   displayedTexts:
-  - 'Scientifique sourd : Il s''est tromper sur cette enigme ?'
+  - "Scientifique sourd : Il s'est tromp\xE9 sur cette \xE9nigme ?"
   - 'Scientifique sourd : Je crois que c''est le pire sujet qu''on a eu.'

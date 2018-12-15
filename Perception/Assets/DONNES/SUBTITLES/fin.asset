@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: fin
   displayedTexts:
-  - "Scientifique fou : Enfin... \"t'\xE9chapper\"."
+  - "Scientifique fou : Enfin... \"T'\xE9chapper\"."
